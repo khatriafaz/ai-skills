@@ -18,4 +18,16 @@ skills/
 
 ## Usage
 
-Copy or reference the relevant skill directory in an AI agent environment that supports custom skills.
+Install with the Skills CLI:
+
+```bash
+npx skills add khatriafaz/ai-skills
+```
+
+Install only the Breeze skill:
+
+```bash
+npx skills add khatriafaz/ai-skills --skill breeze-project-management
+```
+
+You can also copy or reference the relevant skill directory in an AI agent environment that supports custom skills.
