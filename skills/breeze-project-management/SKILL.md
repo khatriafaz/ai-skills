@@ -43,7 +43,7 @@ Use `GET /me.json` to discover the current user and available teams when needed.
 
 1. Identify the resource, operation, target IDs, and team context.
 2. For reads, call the narrowest GET endpoint that answers the question.
-3. For creates/updates, build a minimal JSON payload from explicit user intent.
+3. For creates/updates, build a minimal JSON payload from explicit user intent. For card/task body content, send HTML content and normalize line spacing before submitting.
 4. Before sensitive actions, pause and show the endpoint, target IDs, payload summary, and expected impact. Execute only after explicit confirmation.
 5. After execution, summarize IDs, names, changed fields, and any next-step IDs the user will need.
 
@@ -189,7 +189,7 @@ Create a card/task:
 ```json
 {
   "name": "New task",
-  "description": "Task description",
+  "description": "<p>Task description</p>",
   "stage_id": 9,
   "swimlane_id": 1,
   "duedate": "2025-02-22T16:00:00Z",
@@ -200,6 +200,12 @@ Create a card/task:
   "custom_fields": [{"name": "Rating", "value": "***"}]
 }
 ```
+
+Card/task body content:
+
+- Breeze card bodies/descriptions expect HTML, not Markdown or plain text. Convert user-provided body text into simple HTML such as `<p>...</p>`, `<ul><li>...</li></ul>`, and `<br>` only when a line break belongs inside the same paragraph.
+- Do not preserve extra blank lines from drafts or generated text. Collapse repeated blank lines and avoid whitespace-only lines between HTML elements so the rendered card does not show unintended vertical gaps.
+- Keep the HTML minimal and semantic; do not add styling unless the user explicitly asks for it.
 
 Move a card/task within a board:
 
