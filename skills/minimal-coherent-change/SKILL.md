@@ -1,6 +1,6 @@
 ---
 name: minimal-coherent-change
-description: Implement software fixes and features with the smallest coherent change to the existing system. Use when planning or implementing changes in an existing codebase, especially when the user asks to simplify, avoid overengineering, narrow scope, reuse existing flows, or justify changes across layers or repositories. For diagnosis or review requests, apply the reasoning without implementing changes unless authorized.
+description: Plan and implement software changes with the smallest coherent solution. Load this skill before every implementation-planning or code-changing task, including writing new code, fixing bugs, adding features, refactoring, simplifying, and changing tests, configuration, scripts, or dependencies. Applies to small routine edits and new projects as well as existing codebases; no explicit request for minimalism or mention of this skill is needed. Use alongside any other applicable skills, not instead of them. For diagnosis or review requests, apply the reasoning without implementing changes unless authorized.
 ---
 
 # Minimal Coherent Change
